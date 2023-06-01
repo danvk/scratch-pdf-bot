@@ -12,6 +12,8 @@ openai = "^0.27.6"
 pypdf = "^3.8.1"
 lancedb = "^0.1.2"
 python-dotenv = "^1.0.0"
+dataclasses-jsonschema = "^2.16.0"
+apispec = "^6.3.0"
 
 
 [tool.poetry.group.dev.dependencies]

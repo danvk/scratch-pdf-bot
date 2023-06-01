@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "required": [
+    "docs"
+  ],
+  "properties": {
+    "docs": {
+      "$ref": "#/definitions/DocumentEndpoint"
+    }
+  },
+  "description": "API(docs: __main__.DocumentEndpoint)",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "definitions": {
+    "DocumentEndpoint": {
+      "type": "object",
+      "required": [
+        "get",
+        "post"
+      ],
+      "properties": {
+        "get": {
+          "$ref": "#/definitions/Document"
+        },
+        "post": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "$ref": "#/definitions/Document"
+          }
+        }
+      },
+      "description": "DocumentEndpoint(get: gpt_pdf_bot.types.Document, post: Tuple[gpt_pdf_bot.types.Document, gpt_pdf_bot.types.Document])"
+    },
+    "Document": {
+      "type": "object",
+      "required": [
+        "source",
+        "metadata"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "object"
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Page"
+          },
+          "default": []
+        }
+      },
+      "description": "Document(source: str, metadata: Dict[str, Any], pages: List[gpt_pdf_bot.types.Page] = <factory>)"
+    },
+    "Page": {
+      "type": "object",
+      "required": [
+        "text",
+        "page_num"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "page_num": {
+          "type": "integer"
+        }
+      },
+      "description": "Page(text: str, page_num: int)"
+    }
+  }
+}
